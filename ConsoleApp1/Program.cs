@@ -16,6 +16,8 @@ namespace ConsoleApp1
             int tempSum;
             int index;
             bool lastNumber;
+            string path = "";
+            string tempPath;
 
             for (int i = 0; i < text.Length; i++)
             {
@@ -26,9 +28,11 @@ namespace ConsoleApp1
                     even[i, j] = data[i, j] % 2 == 0;
                 }
             }
+
             for (int i = 0; i <= posSolutions; i++)
             {
                 tempSum = data[0, 0];
+                tempPath = data[0, 0].ToString();
                 index = 0;
                 lastNumber = data[0, 0] % 2 == 0;
                 for (int j = 0; j < data.GetLength(0) - 1; j++)
@@ -38,6 +42,7 @@ namespace ConsoleApp1
                     {
                         tempSum += data[j + 1, index];
                         lastNumber = !lastNumber;
+                        tempPath += "-" + data[j + 1, index];
                     }
                     else
                     {
@@ -48,9 +53,11 @@ namespace ConsoleApp1
                 if (tempSum > largestSum)
                 {
                     largestSum = tempSum;
+                    path = tempPath;
                 }
             }
             Console.WriteLine(largestSum);
+            Console.WriteLine("Path: " + path);
         }
     }
 }
