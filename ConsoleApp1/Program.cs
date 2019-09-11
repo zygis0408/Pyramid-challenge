@@ -8,7 +8,6 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string[] text = File.ReadAllLines("input.txt");
-            bool[,] even = new bool[text.Length, text.Length];
             int[,] data = new int[text.Length, text.Length];
 
             int posSolutions = (int)Math.Pow(2, data.GetLength(0) - 1);
@@ -25,7 +24,6 @@ namespace ConsoleApp1
                 for (int j = 0; j < row.Length; j++)
                 {
                     data[i, j] = int.Parse(row[j]);
-                    even[i, j] = data[i, j] % 2 == 0;
                 }
             }
 
