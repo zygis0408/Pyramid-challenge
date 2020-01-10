@@ -48,6 +48,7 @@ namespace ConsoleApp1
                         tempSum = 0;
                     }
                 }
+                Console.WriteLine(tempPath);
                 if (tempSum > largestSum)
                 {
                     largestSum = tempSum;
